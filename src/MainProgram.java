@@ -8,7 +8,7 @@ class MainProgram {
     private static int[] numbers;
 
     public static void main(String[] args){
-        withNegatives = false;
+        withNegatives = true;
         maxAbsolute = 100;
         numbers = new int[10];
         fillArray(numbers, withNegatives, maxAbsolute);
@@ -56,7 +56,9 @@ class MainProgram {
      */
     private static int sumUp(int[] array){
         int result = 0;
-        //Hier muss Quellcode ergänzt werden.
+        for(int i = 0; i < array.length; i++){
+            result += array[i];
+        }
         return result;
     }
 
@@ -69,6 +71,11 @@ class MainProgram {
      */
     private static int countNegatives(int[] array){
         int result = 0;
+        for(int i = 0; i < array.length; i++){
+            if(array[i] < 0){
+                result = result + 1;
+            }
+        }
         //Hier muss Quellcode ergänzt werden.
         return result;
     }
@@ -82,18 +89,39 @@ class MainProgram {
      */
     private static int sumUpNegatives(int[] array){
         int result = 0;
-        //Hier muss Quellcode ergänzt werden.
+        for(int i = 0; i < array.length; i++){
+            if(array[i] < 0){
+                result = result + array[i];
+            }
+        }
         return result;
     }
 
 
+    private static int findMaximum(int[] array){
+        int result = 0;
+        for(int i = 0; i < array.length; i++){
+            if(array[i] > result){
+                result = array[i];
+            }
+        }
+        return result;
+    }
 
     /** 4. Bestimmen des Maximums in einem Feld
      * Schreiben Sie eine Methode findMaximum, die ein Array des Typs int als Parameter
      * übergeben bekommt und die den größten Wert in diesem Array zurückgibt.
      * Tipp: Versuchen Sie, mit einem Durchlauf durch das Array zu kommen.
      */
-
+    private static int findMaximumIndex(int[] array){
+        int result = 0;
+        for(int i = 0; i < array.length; i++){
+            if(array[i] > array[result]){
+                result = i;
+            }
+        }
+        return result;
+    }
 
 
     /** 5. Bestimmen des Index des Maximums in einem Feld
